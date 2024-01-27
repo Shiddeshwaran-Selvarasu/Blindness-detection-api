@@ -7,7 +7,7 @@ const app = express();
 const storage = multer.diskStorage({
   destination: './uploads/',
   filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    cb(null, file.originalname);
   }
 });
 
@@ -22,6 +22,10 @@ app.post('/upload', (req, res) => {
     }
     res.send('Image uploaded successfully!');
   });
+});
+
+app.get('/process_image', (req, res) => {
+  res.send('done');
 });
 
 module.exports = app;

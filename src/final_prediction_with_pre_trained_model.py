@@ -78,7 +78,7 @@ warnings.filterwarnings('ignore')
 ##### CUSTOM MODULES
 print('Import done')
 
-sys.path.append('/home/shiddesh/Downloads/server/') # need change
+sys.path.append('./') # need change
 from preprocessing import *
 from data import EyeTestData
 from utilities import seed_everything
@@ -119,7 +119,18 @@ seed_everything(seed)
 ##### CHECK DIMENSIONS
 
 # import data
-test = pd.read_csv('/media/shiddesh/MY FILES/docker/Diabetic retinopathy image/dataset/aptos2019-blindness-detection/sample_submission.csv') # need change
+
+databuff = []
+
+if len(sys.argv) < 1:
+    print("Usage: python script.py <argument>")
+    sys.exit(1)
+
+for argument in sys.argv[1:]:
+    databuff.append([argument,0])
+
+test = pd.DataFrame(databuff, columns=['id_code','diagnosis'])
+
 
 # check shape
 print(test.shape)
@@ -141,7 +152,7 @@ test_trans = transforms.Compose([transforms.ToPILImage(),
 
 # create dataset
 test_dataset = EyeTestData(data      = test,
-                           directory = '/media/shiddesh/MY FILES/docker/Diabetic retinopathy image/dataset/aptos2019-blindness-detection/test_images', # need change
+                           directory = './uploads/', # need change
                            transform = test_trans)
 
 # create data loader
@@ -280,11 +291,11 @@ for i, pred in enumerate(test_preds):
 ##### EXPORT CSV
 
 # construct data frame
-sub = pd.read_csv('/media/shiddesh/MY FILES/docker/Diabetic retinopathy image/dataset/aptos2019-blindness-detection/sample_submission.csv') # need change
+sub = pd.DataFrame(databuff, columns=['id_code','diagnosis'])# need change
 sub['diagnosis'] = test_preds.astype('int')
 
 # save predictions
-sub.to_csv('/home/shiddesh/Downloads/submission.csv', index = False) # need change
+sub.to_json('result.json') # need change
 
 ##### CHECK DISTRIBUTION
 
