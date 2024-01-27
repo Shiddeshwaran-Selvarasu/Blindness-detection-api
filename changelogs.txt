@@ -1,0 +1,7 @@
+pip install:
+	torch
+	torchvision
+	opencv-python
+	scikit-learn
+	efficientnet_pytorch
+	
