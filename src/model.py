@@ -13,7 +13,7 @@ def init_model(model_name, train = True, trn_layers = 2):
         
         # load pre-trained model
         model = EfficientNet.from_pretrained('efficientnet-b4', num_classes = 5)
-        model.load_state_dict(torch.load('./model/model_{}.bin'.format(model_name, 1), map_location=torch.device('cpu')))   
+        model.load_state_dict(torch.load('./src/model/model_{}.bin'.format(model_name, 1), map_location=torch.device('cpu')))   
         
         # freeze first layers
         for child in list(model.children())[:-trn_layers]:
@@ -26,7 +26,7 @@ def init_model(model_name, train = True, trn_layers = 2):
         
         # load pre-trained model
         model = EfficientNet.from_pretrained('efficientnet-b4', num_classes = 5)
-        model.load_state_dict(torch.load('/media/shiddesh/MY FILES/docker/Diabetic retinopathy image/model/model_{}.bin'.format(model_name, 1), map_location=torch.device('cpu')))   
+        model.load_state_dict(torch.load('./src/model/model_{}.bin'.format(model_name, 1), map_location=torch.device('cpu')))   
 
         # freeze all layers
         for param in model.parameters():

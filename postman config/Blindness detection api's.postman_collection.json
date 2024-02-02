@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "c8b50ba7-c339-4ea1-892f-4fec4983392a",
+		"name": "Blindness detection api's",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22684665"
+	},
+	"item": [
+		{
+			"name": "upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4001/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "process image",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://shiddeshappserver.ddns.net:4001/download?name=demo",
+					"protocol": "http",
+					"host": [
+						"shiddeshappserver",
+						"ddns",
+						"net"
+					],
+					"port": "4001",
+					"path": [
+						"download"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "demo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "clean Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://shiddeshappserver.ddns.net:4001/clean?name=demo",
+					"protocol": "http",
+					"host": [
+						"shiddeshappserver",
+						"ddns",
+						"net"
+					],
+					"port": "4001",
+					"path": [
+						"clean"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "demo"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

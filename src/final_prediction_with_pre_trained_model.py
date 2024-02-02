@@ -207,7 +207,7 @@ for fold in tqdm(range(num_folds)):
 
     # load model and sent to GPU
     model = init_model(model_name = 'enet_b4', train = False)
-    model.load_state_dict(torch.load('/media/shiddesh/MY FILES/docker/Diabetic retinopathy image/model/model_{}_fold{}.bin'.format(model_name, fold + 1), map_location=torch.device('cpu')))  # need change
+    model.load_state_dict(torch.load('./src/model/model_{}_fold{}.bin'.format(model_name, fold + 1), map_location=torch.device('cpu')))  # need change
     model = model.to(device)
     model.eval()
 
@@ -295,7 +295,7 @@ sub = pd.DataFrame(databuff, columns=['id_code','diagnosis'])# need change
 sub['diagnosis'] = test_preds.astype('int')
 
 # save predictions
-sub.to_json('result.json') # need change
+sub.to_json(sys.argv[1].split('_')[0]+'_result.json') # need change
 
 ##### CHECK DISTRIBUTION
 

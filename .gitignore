@@ -2,3 +2,4 @@ node_modules
 uploads
 log.txt
 __pycache__
+*_result.json
