@@ -4,4 +4,5 @@ pip install:
 	opencv-python
 	scikit-learn
 	efficientnet_pytorch
+	jupyter
 	
