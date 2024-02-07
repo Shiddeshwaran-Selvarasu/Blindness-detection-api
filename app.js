@@ -1,6 +1,6 @@
 const { exec } = require('child_process');
 const express = require('express');
-const { readFileSync, writeFileSync, unlinkSync, existsSync } = require('fs');
+const { readFileSync, writeFileSync, unlinkSync, existsSync, mkdirSync } = require('fs');
 const multer = require('multer');
 const sharp = require('sharp');
 const path = require('path');
