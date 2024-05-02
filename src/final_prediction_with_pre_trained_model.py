@@ -84,19 +84,19 @@ from data import EyeTestData
 from utilities import seed_everything
 from model import init_model
 
-# ##### GPU CHECK
-# print('GPU check')
+##### GPU CHECK
+print('GPU check')
 
-# train_on_gpu = torch.cuda.is_available()
-# if not train_on_gpu:
-#     print('CUDA is not available. Training on CPU...')
-#     device = torch.device('cpu')
-# else:
-#     print('CUDA is available. Training on GPU...')
-#     device = torch.device('cuda:0')
+train_on_gpu = torch.cuda.is_available()
+if not train_on_gpu:
+    print('CUDA is not available. Training on CPU...')
+    device = torch.device('cpu')
+else:
+    print('CUDA is available. Training on GPU...')
+    device = torch.device('cuda:0')
 
-print('CUDA is not available. Training on CPU...')
-device = torch.device('cpu')
+# print('CUDA is not available. Training on CPU...')
+# device = torch.device('cpu')
 
 ##### RANDOMNESS
 

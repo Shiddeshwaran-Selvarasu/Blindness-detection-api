@@ -1,8 +1,1 @@
-pip install:
-	torch
-	torchvision
-	opencv-python
-	scikit-learn
-	efficientnet_pytorch
-	jupyter
-	
+pip install	torch torchvision opencv-python	scikit-learn efficientnet_pytorch jupyter tqdm	matplotlib seaborn

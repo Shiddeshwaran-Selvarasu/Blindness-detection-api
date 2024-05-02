@@ -72,7 +72,7 @@ app.get('/process_image', (req, res) => {
     return;
   }
 
-  const predictor = exec(`python src/final_prediction_with_pre_trained_model.py ${filename}_left ${filename}_right`); 
+  const predictor = exec(`python3 src/final_prediction_with_pre_trained_model.py ${filename}_left ${filename}_right`); 
 
   predictor.stdout.on('data', (data) => {
     log(data);
